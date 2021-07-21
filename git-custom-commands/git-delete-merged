@@ -1,0 +1,6 @@
+#!/bin/sh
+# a custom git command to delete all merged local branches from your local git
+# it won't delete (dev,master,staging,hotfix)
+
+set -e
+git branch --merged| egrep -v "(^\*|dev|master|staging|hotfix)" | xargs git branch -d
