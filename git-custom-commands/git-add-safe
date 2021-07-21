@@ -1,0 +1,7 @@
+#!/bin/sh
+# a custom git command to add all files except migration files for django and cleans the untracked ones
+
+
+git add .
+git reset -- **/migrations/*.py
+git clean -f
