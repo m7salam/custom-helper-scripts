@@ -9,7 +9,7 @@ helpful scripts I found that it helps my dev env and productivity
 3. [git-deletemerged](#git-deletemerged) - Deletes all your already merged local branches to clean ur environment. 
 4. [git-refresh](#git-refresh) - Refresh current local branch with any remote branch easily. 
 5. [git-pushremote](#git-pushremote) - Push local branch changes to remote branch after updating from it.
-6. [git-switch](#git-switch) - Switch branches easily. Takes care of stashing changes and creating a new branch if required.
+6. [git-switch](#git-switch) (Deprecated) - Switch branches easily. Takes care of stashing changes and creating a new branch if required.
 7. [Setup Cutom Commands](#setup) - Get started in 5 minutes max.
 8. [Creating Custom Git Commands](#writing-custom-git-commands) - Have your own ideas? Create custom scripts.
 
@@ -128,7 +128,23 @@ If you want to force push just use
 git pushremote -f
 ```
 
-## git-switch
+## git-switch (Deprecated)
+
+github has introduced a git switch command starting v2.23
+
+you can read more about it here
+https://bluecast.tech/blog/git-switch-branch/
+
+so can simply use 
+
+```
+git switch {branch}
+
+# or 
+
+git switch -c {new_branch}
+
+```
 
 git-switch enables you to switch to a new or existing branch easliy. You don't need to worry about stashing changes or looking into if the branch already exist or not. It will create the branch if it does not exists, otherwise will just switch to the banch and apply the stashed changes.
 
