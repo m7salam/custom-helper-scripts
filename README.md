@@ -5,11 +5,13 @@ helpful scripts I found that it helps my dev env and productivity
 ## Index
 
 1. [Download commands](#download-files) - Download the files quickly using curl. 
-2. [git-refresh](#git-refresh) - Refresh current local branch with any remote branch easily. 
-3. [git-pushremote](#git-pushremote) - Push local branch changes to remote branch after updating from it.
-4. [git-switch](#git-switch) - Switch branches easily. Takes care of stashing changes and creating a new branch if required.
-5. [Setup Cutom Commands](#setup) - Get started in 5 minutes max.
-6. [Creating Custom Git Commands](#writing-custom-git-commands) - Have your own ideas? Create custom scripts.
+2. [git-addsafe](#git-addsafe) - Add all commited files without any new migrations generated and deletes the untracked migrations (Django specific). 
+3. [git-deletemerged](#git-deletemerged) - Deletes all your already merged local branches to clean ur environment. 
+4. [git-refresh](#git-refresh) - Refresh current local branch with any remote branch easily. 
+5. [git-pushremote](#git-pushremote) - Push local branch changes to remote branch after updating from it.
+6. [git-switch](#git-switch) - Switch branches easily. Takes care of stashing changes and creating a new branch if required.
+7. [Setup Cutom Commands](#setup) - Get started in 5 minutes max.
+8. [Creating Custom Git Commands](#writing-custom-git-commands) - Have your own ideas? Create custom scripts.
 
 
 
@@ -32,6 +34,45 @@ sudo chmod u+x {command-file-name}
 
 ```
 
+## git-addsafe
+This enables you to stage your edited files safetly without staging any migrations files so migrations can be only run on your specified branch as it needs to be consistant which in this case solves the migrations conflicts that face django developers while working with big teams .
+
+Instead of:
+```bash
+git add .
+git reset -- **/migrations/*.py
+git clean -f
+```
+you can just do:
+```bash
+git addsafe
+```
+
+<b>Usage</b>
+```
+git addsafe
+```
+
+
+## git-deletemerged
+This enables you to delete all merged branches from your local git
+
+it will exclude (dev,master,staging,hotfix) and the current branch u are on with the * .
+
+
+Instead of:
+```
+git branch --merged| egrep -v "(^\*|dev|master|staging|hotfix)" | xargs git branch -d
+```
+you can just do:
+```
+git deletemerged
+```
+
+<b>Usage</b>
+```
+git deletemerged
+```
 
 ## git-refresh
 This enables you to pull changes from a different remote branch to your local branch with just one command. 
