@@ -153,7 +153,7 @@ git switch checkout-branch-name
 ## Setup
 
 1. Put the `git-refresh` and `git-pushremote` files anywhere on your system in a folder. Lets say you've put in the folder named `bin` in your home directory, so the folder path is `/home/username/path/bin/`
-2. Add the directory path to your environment `PATH`. For Linux/Mac, you can edit your `.zschrc` by doing `vim ~/.zshrc` # use .bashrc if u are using bash. Add following line in the file in the beginning:
+2. Add the directory path to your environment `PATH`. For Linux/Mac, you can edit your `.zshrc` by doing `vim ~/.zshrc` # use .bashrc if u are using bash. Add following line in the file in the beginning:
    
    ```
    #!/bin/sh
